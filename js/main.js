@@ -1,33 +1,56 @@
-/*==================== MENU SHOW Y HIDDEN ====================*/
-const navMenu = document.getElementById('nav-menu'),
-      navToggle = document.getElementById('nav-toggle'),
-      navClose = document.getElementById('nav-close')
-
-/*===== MENU SHOW =====*/
-/* Validate if constant exists */
-if(navToggle){
-    navToggle.addEventListener('click', () =>{
-        navMenu.classList.add('show-menu')
-    })
+/*==================== MENU MOBILE - LÓGICA HAMBURGUERIA ====================*/
+// Simular slideToggle do jQuery
+function slideToggle(element) {
+    if (!element) return;
+    
+    if (element.classList.contains('show-menu')) {
+        // Fechar - slideUp
+        element.style.maxHeight = element.scrollHeight + 'px';
+        // Forçar reflow
+        element.offsetHeight;
+        element.style.maxHeight = '0';
+        element.style.opacity = '0';
+        setTimeout(function() {
+            element.classList.remove('show-menu');
+        }, 300);
+    } else {
+        // Abrir - slideDown
+        element.classList.add('show-menu');
+        element.style.maxHeight = '0';
+        element.style.opacity = '0';
+        // Forçar reflow
+        element.offsetHeight;
+        element.style.maxHeight = element.scrollHeight + 'px';
+        element.style.opacity = '1';
+    }
 }
 
-/*===== MENU HIDDEN =====*/
-/* Validate if constant exists */
-if(navClose){
-    navClose.addEventListener('click', () =>{
-        navMenu.classList.remove('show-menu')
-    })
-}
-
-/*==================== REMOVE MENU MOBILE ====================*/
-const navLink = document.querySelectorAll('.nav__link')
-
-function linkAction(){
-    const navMenu = document.getElementById('nav-menu')
-    // When we click on each nav__link, we remove the show-menu class
-    navMenu.classList.remove('show-menu')
-}
-navLink.forEach(n => n.addEventListener('click', linkAction))
+// Menu mobile - toggle (mesma lógica do hamburgueria)
+document.addEventListener('DOMContentLoaded', function() {
+    const navMobile = document.querySelector('.nav__mobile h3');
+    const navMobileMenu = document.getElementById('nav-mobile-menu');
+    
+    if (navMobile && navMobileMenu) {
+        navMobile.addEventListener('click', function() {
+            slideToggle(navMobileMenu);
+        });
+    }
+    
+    // Fecha o menu ao clicar em um link (para dispositivos móveis)
+    const mobileLinks = document.querySelectorAll('.nav__mobile-menu .nav__link');
+    mobileLinks.forEach(function(link) {
+        link.addEventListener('click', function() {
+            if (window.innerWidth <= 900) {
+                if (navMobileMenu && navMobileMenu.classList.contains('show-menu')) {
+                    navMobileMenu.style.maxHeight = navMobileMenu.scrollHeight + 'px';
+                    navMobileMenu.offsetHeight; // Forçar reflow
+                    navMobileMenu.classList.remove('show-menu');
+                    navMobileMenu.style.maxHeight = '0';
+                }
+            }
+        });
+    });
+});
 
 /*==================== ACCORDION SKILLS ====================*/
 const skillsContent = document.getElementsByClassName('skills__content'),
