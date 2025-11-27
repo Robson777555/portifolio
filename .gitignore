@@ -2,5 +2,5 @@ bash
 # .gitignore
 .DS_Store
 
-# Local Netlify folder
+## Local Netlify folder
 .netlify

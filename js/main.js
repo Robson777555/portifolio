@@ -1,4 +1,4 @@
-/*==================== MENU MOBILE - LÓGICA HAMBURGUERIA ====================*/
+/*==================== MENU MOBILE - LÓGICA HAMBURGUERIA =====================*/
 // Simular slideToggle do jQuery
 function slideToggle(element) {
     if (!element) return;

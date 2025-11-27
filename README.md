@@ -1,6 +1,6 @@
 # Portfólio - Robson Santos Jobim
 
-## 📋 Descrição
+### 📋 Descrição
 
 Portfólio profissional desenvolvido para plataformas de freelancer, apresentando projetos e habilidades em desenvolvimento front-end. O site foi otimizado para demonstrar competências técnicas e experiência prática.
 
