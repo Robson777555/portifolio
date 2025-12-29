@@ -1,3 +1,5 @@
+// UPGRADE: Otimização de função modal para imagem de automação n8nmob.png com altura calculada dinamicamente
+
 /*==================== MENU MOBILE - LÓGICA HAMBURGUERIA =====================*/
 // Simular slideToggle do jQuery
 function slideToggle(element) {
