@@ -1,0 +1,19 @@
+# UPGRADE: Otimização completa do portfólio
+
+[build]
+  publish = "."
+  command = "echo 'No build step required'"
+
+[[redirects]]
+  from = "https://portifolio-robson-santos-jobim.netlify.app/*"
+  to = "https://robsonjobim.com/:splat"
+  status = 301
+  force = true
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"

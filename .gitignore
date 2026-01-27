@@ -1,0 +1,8 @@
+# UPGRADE: Otimização completa do portfólio
+
+bash
+# .gitignore
+.DS_Store
+
+## Local Netlify folder
+.netlify
